@@ -1,28 +1,26 @@
-<h1>メッセージ一覧</h1>
+<h1>画像一覧</h1>
+
+<a href="./create">新しい画像を登録する</a>
 
     @if (count($items) > 0)
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>メッセージ</th>
+                    <th>画像</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($items as $item)
                 <tr>
-                    <td>{{ $item->name }}</td>
-                    <td>{{ $item->jan }}</td>
-                    <td>{{ $item->photos[0]->item_id }}</td>
-                    <td>{{ $item->photos[0]->path }}</td>
-                    <td><img src="item/{{ $item->photos[0]->path }}"></td>
+                    <td>{{ $item->id }}</td>
+                    <td><img src="{{ asset('/storage/img/'.$item->file_name) }}"></td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     @else
-    <p>まだアイテム無し</p>
+    <p>まだ画像は登録されていません。</p>
 
     @endif
-
-    <a href="./create">フォトを登録する</a>
+    

@@ -8,14 +8,11 @@
 @endif
 
 <!-- 登録フォーム -->
+<h1>画像登録画面</h1>
 <form action="{{ url('create') }}" method="POST" enctype="multipart/form-data">
-    <label for="name">商品名:</label>
-    <input type="text" class="form-control" name="name" value="">
-    <br>
-    <label for="photo">画像ファイル:</label>
-    <input type="file" class="form-control" name="files[][photo]" multiple>
+    {{ csrf_field() }}
+    <input type="file" class="form-control" name="image_file">
     <br>
     <hr>
-    {{ csrf_field() }}
-    <button class="btn btn-success"> Upload </button>
+    <button class="btn btn-success">登録</button>
 </form>

@@ -10,10 +10,5 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/items', 'ItemController@index');   //追加
-Route::match(['GET', 'POST'], '/create', 'ItemController@create');  //追加
+Route::get('/', 'ItemController@index');
+Route::match(['GET', 'POST'], '/create', 'ItemController@create');
